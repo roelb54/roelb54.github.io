@@ -1,0 +1,182 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Agenda - week 1},
+  pdfauthor={Roel Bakker},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Agenda - week 1}
+\author{Roel Bakker}
+\date{6-Apr-2022}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Agenda week 1}
+\protect\hypertarget{agenda-week-1}{}
+\begin{enumerate}
+\tightlist
+\item
+  Round of introduction {[}5 min{]}
+\item
+  Install R and RStudio {[}5 min{]}
+\item
+  Basic introduction to R {[}10 min{]}
+\item
+  R Lab {[}15 min{]}
+\item
+  Q \& A {[} 5 min{]}
+\item
+  Coffee Break {[}10 min{]}
+\item
+  SIR Model {[}10 min{]}
+\item
+  SIR Model in RStudio {[}10 min{]}
+\item
+  Background on Differential Equations {[}10 min{]}
+\item
+  Q \& A {[}10 min{]}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]{Installing R}
+\protect\hypertarget{installing-r}{}
+\begin{itemize}
+\tightlist
+\item
+  download R from r-project.org
+  {[}\url{http://cran.at.r-project.org/}{]}
+\item
+  download RStudio Desktop from rstudio.org
+  {[}\url{http://www.rstudio.com/ide/download/}{]}
+\item
+  install both R and RStudio
+\item
+  test successful installation with:
+\end{itemize}
+
+\begin{verbatim}
+demo(graphics)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}{References}
+\protect\hypertarget{references}{}
+\href{https://cognitiveclass.ai/courses/r-101}{A free R course at
+Cognitive Class AI (IBM)}
+
+\href{https://www.statlearning.com/}{More advanced: my favorite book on
+Statistical Learning with R (free pdf ; Labs in R with Introduction to R
+in the 1st chapter)}
+
+\href{https://www.dataschool.io/15-hours-of-expert-machine-learning-videos/}{Videos
+and slides of an excellent course accompanying Introduction to
+Statistical Learning (1st Ed) by Hastie and Tibshirani}
+
+\href{https://www.edx.org/course/statistical-learning}{Free course at
+edX of of the 2nd Ed of Introduction to Statistical Learning (2nd Ed) by
+Hastie and Tibshirani}
+
+\href{https://github.com/rstudio/Intro/tree/master/slides}{Slides of the
+course Introduction to Data Science with R by Garrett Grolemund
+(RStudio)}
+
+\href{https://www.coursera.org/specialization/jhudatascience/1?utm_medium=listingPage}{Coursera
+Data Science Specialization}
+
+\href{http://datasciencespecialization.github.io/}{Data Science
+Specialization Community Site}
+
+\href{http://www.oreilly.com/data/}{O'Reilly Data}
+
+\href{http://tryr.codeschool.com/}{Try R at Code School}
+\end{frame}
+
+\end{document}
