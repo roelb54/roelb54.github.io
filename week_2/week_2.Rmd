@@ -1,0 +1,107 @@
+---
+title: "Modelling infectious disease dynamics with R - week 2"
+author: "Roel Bakker, PhD"
+date: "13-Apr-2022"
+output:
+  slidy_presentation:
+    font_adjustment: -1
+  ioslides_presentation: default
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+*****
+## Agenda 
+
+1. New link to all material for this course: https://bit.ly/infdismodR   
+   (please open .html files by right mouse click -> Open With -> Google Chrome or Microsoft Edge)
+2. Base R cheat sheet at: http://github.com/rstudio/cheatsheets/blob/main/base-r.pdf
+3. More R cheat sheets at RStudio: https://www.rstudio.com/resources/cheatsheets/
+4. More on R and statistics at: https://bit.ly/statR including link to R course at DataCamp
+5. Review of Differential Equations [10 min]
+6. Lab 1: Simulation of the Lorenz equations with deSolve [20 min]
+7. Lab 2 (and homework): Implementation of model 1 from [Sumner and White](https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-020-05592-5)
+
+## Review of Differential Equations
+
+Definition of a differential equation:
+
+**an equation that defines the relationship between a function and its derivatives**
+
+For example:
+
+$dy(t)/dt = k \cdot y(t)$
+
+with $y(t)$ a function of time. 
+
+We are looking for a function $y(t)$ that _satisfies_ the differential equation i.e.  
+the condition that at any moment in time $dy(t)/dt$ equals a constant $k$ times   
+the value of $y(t)$ at that moment.  
+
+Let's use [WolframAlpha](https://www.wolframalpha.com/) to solve the differential equation.  
+
+Enter $y'[t] = k \space y[t]$ in the text box and click on $=$   
+
+For k = -1 enter $y'[t] = -y[t]$  
+
+A particular solution for y(0) = 3: $y'[t] = -y[t], y[0]=3$  
+
+
+*****
+
+## Lab 1: Simulation of the Lorenz equations with deSolve
+
+Many differential equations cannot be solved analytically.  
+In that case we can _simulate_ the time behavior of the differential equations.  
+We will use the R package deSolve to do that.  
+
+Lab 1(i.e. DIY):
+- implement the Lorenz model as documented in the deSolve vignette:  
+  _Solving Initial Value Differential Equations in R_
+
+- please read the deSolve documentation on the ode() function   
+- you may also want to read documentation on with (i.e. ? with in RStudio)
+
+Note that the function Lorenz is defined as:  
+
+$Lorenz = function(t, state, parameters)$
+
+although $t$ is not being used in the function body (as in the SIR model).  
+
+It may seem a bit mysterious that $t$ would not be necessary to calculate the    
+time derivatives, but this simply means that   
+- the explicit value of $t$ does not matter ; we could start anywhere in time ...  
+- the initial values of the state variables (i.e. $X(0)$,$Y(0)$,$Z(0)$) determine the starting values  
+
+Differential equations without $t$ occurring on the RHS of the equations are called  
+_autonomous differential equations_.  
+
+The derivative $dY/dt$ means the change in Y per unit time   
+the $\frac{1}{unit\ time}$ results from the rate parameters on the RHS of the equations.
+
+See also [Lorenz demo](https://roelb54.shinyapps.io/devdataproduct)
+
+## Lab 2 and homework [not for the faint of heart :-)]: 
+
+Read the paper by Tom Sumner and Richard White in BMC Infectious Diseases:
+https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-020-05592-5
+
+including the appendix:
+https://static-content.springer.com/esm/art%3A10.1186%2Fs12879-020-05592-5/MediaObjects/12879_2020_5592_MOESM1_ESM.docx
+
+Implement model 1 in deSolve
+
+Research questions:  
+
+- what is the predicted dynamics (i.e. in what time frame would we see an impact) of the impact of TPT on TB disease incidence?  
+- what is the predicted dynamics of ACF on TB disease incidence?  
+- which intervention would be cheaper (e.g. costs per incident case averted)?  
+
+See also https://roelb54.shinyapps.io/TBvaxdemo/
+
+
+
+
