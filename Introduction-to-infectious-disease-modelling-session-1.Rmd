@@ -3,10 +3,10 @@ title: "Introduction to Infectious Disease Modelling"
 author: "Roel Bakker"
 date: "16-April-2024"
 output:
+  beamer_presentation: default
+  ioslides_presentation: default
   slidy_presentation:
     font_adjustment: -1
-  ioslides_presentation: default
-  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
