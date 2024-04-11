@@ -1,5 +1,5 @@
 ---
-title: "Modelling infectious disease dynamics with R [extras B]"
+title: "Modelling infectious disease dynamics with R [extras C]"
 author: "Roel Bakker, PhD"
 date: "April 2024"
 output:
@@ -22,13 +22,13 @@ knitr::opts_chunk$set(echo = FALSE)
     2.  SIR model
     3.  TIME Impact core model
     4.  Demo: implementation of TIME impact core model in tbvax
-2.  Assignments for week 4:
-    1.  complete the assignment for week 3\
+2.  Assignments:
+    1.  complete the assignments so far
     2.  experiment with the tbvax model
 
 ------------------------------------------------------------------------
 
-### 2.1 Exponential Decay
+### 1.1 Exponential Decay
 
 $dy(t)/dt = -k \cdot y(t)$
 
@@ -38,7 +38,7 @@ See [expdecay-etc.R](./expdecay-etc.R)
 
 ------------------------------------------------------------------------
 
-### 2.2 SIR model
+### 1.2 SIR model
 
 Differential equations:
 
@@ -59,23 +59,25 @@ see [SIR_model.R](./SIR_model.R)
 
 ------------------------------------------------------------------------
 
-### 2.3 TIME impact model (core model only: no age groups, MDR, treatment history)
+### 1.3 TIME impact model (core model only: no age groups, MDR, treatment history)
 
 ![from Tech appendix of BMC Medicine 2016 paper by Houben](SLIN-core.png)
 
-see TIME-core.R
+see [TIME-core.R](./TIME-core.R)
 
 use the picture above to define the differential equations in the derivs() function !
 
 experiment with your model
 
-------------------------------------------------------------------------
-
-### 2.4 Demo: TIME impact model implemented in tbvax
+... or peek at the solution: [TIME-core-sol.R](./TIME-core-sol.R)
 
 ------------------------------------------------------------------------
 
-### 3.1 Assignment (originally for week 3) [not for the faint of heart :-)]:
+### 1.4 Demo: TIME impact model implemented in tbvax
+
+------------------------------------------------------------------------
+
+### 2.1 Assignment (originally for week 3) [not for the faint of heart :-)]:
 
 Read the paper by Tom Sumner and Richard White in BMC Infectious Diseases: <https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-020-05592-5>
 

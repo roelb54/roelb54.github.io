@@ -3,10 +3,10 @@ title: "Introduction to Infectious Disease Modelling"
 author: "Roel Bakker"
 date: "16-April-2024"
 output:
-  beamer_presentation: default
-  ioslides_presentation: default
   slidy_presentation:
     font_adjustment: -1
+  ioslides_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -747,9 +747,9 @@ The population is divided into 3 groups:
 
 Differential equations: $$
 \begin{align}
-\frac{\partial S}{\partial t} &= −b\cdot c\cdot \frac{I}{N} \cdot S \\
-\frac{\partial I}{\partial t} &= b\cdot c\cdot \frac{I}{N} \cdot S - \frac{I}{d} \\
-\frac{\partial R}{\partial t} &= \frac{I}{d}
+\frac{dS}{dt} &= −b\cdot c\cdot \frac{I}{N} \cdot S \\
+\frac{dI}{dt} &= b\cdot c\cdot \frac{I}{N} \cdot S - \frac{I}{d} \\
+\frac{dR}{dt} &= \frac{I}{d}
 \end{align}
 $$ with\
 $N=S+I+R$
@@ -759,7 +759,7 @@ $b$: transmission probability per contact\
 $c$: contact rate (the number of contacts per unit time)\
 $d$: duration of the infectious period
 
-An epidemic will develop if $\frac{\partial I}{\partial t} > 0$ i.e. if $b \cdot c \cdot d >1$ (provided that $I>0$ and $\frac{S}{N} = 1$)
+An epidemic will develop if $\frac{dI}{dt} > 0$ i.e. if $b \cdot c \cdot d >1$ (provided that $I>0$ and $\frac{S}{N} = 1$)
 
 The so called $R_0 = b \cdot c \cdot d$ is the number of secondary infections resulting from a single infectious person in a totally susceptible population (i.e when $S = N−1$ en $I = 1$).
 
@@ -796,11 +796,11 @@ Which is kind of abstract ....
 
 We will limit ourselves to first derivatives and use time as the independent variable:
 
-$$\frac {\partial y} {\partial t} = k \cdot y$$
+$$\frac {dy} {dt} = k \cdot y$$
 
 with $y$ we actually mean $y(t)$ i.e. $y$ as a function of time ; we use $y$ as a short notation; so in fact:
 
-$$\frac {\partial y(t)} {\partial t} = k \cdot y(t)$$
+$$\frac {dy(t)} {dt} = k \cdot y(t)$$
 
 What does this mean?
 
@@ -810,11 +810,11 @@ We are looking for a function $y(t)$ that satisfies this condition (i.e. this di
 
 ------------------------------------------------------------------------
 
-### Flowfield of $$\frac {\partial y(t)} {\partial t} = k \cdot y(t)$$
+### Flowfield of $$\frac {dy(t)} {dt} = k \cdot y(t)$$
 
 Before trying to find a solution to the differential equation, we can get an impression about the\
 time behavior by looking at the 'flow field' i.e. the derivative (slope of the tangent) of the\
-(unknown) function; in this case for $$\frac {\partial y(t)}{\partial t} = - y(t)$$
+(unknown) function; in this case for $$\frac {dy(t)}{dt} = - y(t)$$
 
 ```{r echo=F}
 library(phaseR)
@@ -832,11 +832,11 @@ expdecay  <- flowField(dy,xlim = c(0,2), ylim = c(0, 2),
 
 ------------------------------------------------------------------------
 
-### Solution of $\frac {\partial y(t)}{\partial t} = k \cdot y(t)$
+### Solution of $\frac {dy(t)}{dt} = k \cdot y(t)$
 
-In this case the differential equation $\frac{\partial y(t)}{\partial t} = k \cdot y(t)$ has an analytic solution.
+In this case the differential equation $\frac{dy(t)}{dt} = k \cdot y(t)$ has an analytic solution.
 
-From high school we may remember that the $\frac{\partial }{\partial t}e^t = e^t$ and that $\frac{\partial }{\partial t}e^{k \cdot t} = k \cdot e^{k \cdot t}$
+From high school we may remember that the $\frac{d}{dt}e^t = e^t$ and that $\frac{d}{dt}e^{k \cdot t} = k \cdot e^{k \cdot t}$
 
 Therefore $y(t) = e^{k \cdot t}$ satisfies our differential equation
 
@@ -858,9 +858,9 @@ In that case we can integrate a system of differential equations numerically i.e
 This comes down to:
 
 1.  start with an initial value at time $t=0$: $y(0) = 1$
-2.  calculate $\frac{\partial y(t)}{\partial t} = k \cdot y(t)$
+2.  calculate $\frac{dy(t)}{dt} = k \cdot y(t)$
 3.  with e.g. $k = -0.6$: $\frac{dy(0)}{dt} = -0.6 * 1 = -0.6$
-4.  calculate $y$ at time $t+h$ (where $h$ is a small time step for instance $0.2$): $y(t+h) = y(0)+ h \cdot \frac{\partial y(0)}{\partial t} = 1 + 0.2 \cdot -0.6 = 0.88$
+4.  calculate $y$ at time $t+h$ (where $h$ is a small time step for instance $0.2$): $y(t+h) = y(0)+ h \cdot \frac{dy(0)}{dt} = 1 + 0.2 \cdot -0.6 = 0.88$
 5.  next, calculate $y(t+2\cdot h)$:\
     $y(t+2\cdot h) = y(t+h) + h \cdot \frac{dy(t+h)}{dt} = 0.88 + 0.2 \cdot -0.6 \cdot 0.88 = 0.7744$
 
@@ -896,8 +896,8 @@ lines(t,y0*exp(k*t),col="blue",lwd=2)
 Pharmacokinetics: removal of a substance from the circulation by the kidney (glomerular filtration).\
 In fact, this is slightly more complicated (two coupled 1st order diff eqs):
 
-$\frac{\partial c1}{\partial t} = -k10*c1 + k21*c2$\
-$\frac{\partial c2}{\partial t} = k12*c1$
+$\frac{dc1}{dt} = -k10*c1 + k21*c2$\
+$\frac{dc2}{dt} = k12*c1$
 
 ![two-compartment system](2c.png)
 
@@ -913,7 +913,7 @@ Note that the differential equations for these 3 systems are identical. Also, th
 
 In a standard S(E)IR model, disease progression is defined as:
 
-$$\frac{\partial I}{\partial t} = \frac{-I}{d}$$
+$$\frac{dI}{dt} = \frac{-I}{d}$$
 
 with d the duration of the infectious period (i.e. a removal rate of $\frac 1 d$)
 

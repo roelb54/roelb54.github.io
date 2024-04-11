@@ -1,7 +1,7 @@
 ---
-title: "Modelling infectious disease dynamics with R - week 2"
+title: "Modelling infectious disease dynamics with R [extras A]"
 author: "Roel Bakker, PhD"
-date: "13-Apr-2022"
+date: "April 2024"
 output:
   slidy_presentation:
     font_adjustment: -1
@@ -16,14 +16,12 @@ knitr::opts_chunk$set(echo = FALSE)
 *****
 ## Agenda 
 
-1. New link to all material for this course: https://bit.ly/infdismodR   
-   (please open .html files by right mouse click -> Open With -> Google Chrome or Microsoft Edge)
-2. Base R cheat sheet at: http://github.com/rstudio/cheatsheets/blob/main/base-r.pdf
-3. More R cheat sheets at RStudio: https://www.rstudio.com/resources/cheatsheets/
-4. More on R and statistics at: https://bit.ly/statR including link to R course at DataCamp
-5. Review of Differential Equations [10 min]
-6. Lab 1: Simulation of the Lorenz equations with deSolve [20 min]
-7. Lab 2 (and homework): Implementation of model 1 from [Sumner and White](https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-020-05592-5)
+1. Base R cheat sheet at: http://github.com/rstudio/cheatsheets/blob/main/base-r.pdf
+2. More R cheat sheets at RStudio: https://www.rstudio.com/resources/cheatsheets/
+3. More on R and statistics at: https://bit.ly/statR including link to R course at DataCamp
+4. Review of Differential Equations [10 min]
+5. Lab 1: Simulation of the Lorenz equations with deSolve [20 min]
+6. Lab 2 (and homework): Implementation of model 1 from [Sumner and White](https://bmcinfectdis.biomedcentral.com/articles/10.1186/s12879-020-05592-5)
 
 ## Review of Differential Equations
 
