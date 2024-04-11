@@ -2,11 +2,11 @@
 title: "Modelling infectious disease dynamics with R [extras B]"
 author: "Roel Bakker, PhD"
 date: "April 2024"
-output:
-  slidy_presentation:
-    font_adjustment: -1
-  ioslides_presentation: default
-  beamer_presentation: default
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Modelling infectious disease dynamics with R [extras B]}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}

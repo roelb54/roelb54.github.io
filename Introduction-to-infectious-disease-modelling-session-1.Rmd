@@ -2,11 +2,11 @@
 title: "Introduction to Infectious Disease Modelling"
 author: "Roel Bakker"
 date: "16-April-2024"
-output:
-  slidy_presentation:
-    font_adjustment: -1
-  ioslides_presentation: default
-  beamer_presentation: default
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to Infectious Disease Modelling}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
 
 ```{r setup, include=FALSE}
@@ -18,19 +18,19 @@ knitr::opts_chunk$set(echo = FALSE)
 ### Agenda
 
 -   Round of introduction
--   [Install R and RStudio]
--   [Introduction to R]
+-   [Install R and RStudio](#install-r-and-rstudio)
+-   [Introduction to R](#introduction-to-r)
 -   [R Lab](./R/R_lab.R)
 -   Q & A
 -   Coffee Break
--   [SIR Model]
+-   [SIR Model](#sir-model)
 -   [SIR Model in RStudio]
 -   [Background on Differential Equations]
 -   Q & A
 
 ------------------------------------------------------------------------
 
-### Install R and RStudio
+### Install R and RStudio {#install-r-and-rstudio}
 
 -   download R from r-project.org [<http://cran.at.r-project.org/>]
 -   download RStudio Desktop from rstudio.org [<http://www.rstudio.com/ide/download/>]
@@ -43,7 +43,7 @@ demo(graphics)
 
 ------------------------------------------------------------------------
 
-### Introduction to R
+### Introduction to R {#introduction-to-r}
 
 ```{r echo=TRUE}
 x = rnorm(12, mean = -5)
@@ -734,7 +734,7 @@ my.height.cm = 188
 
 ------------------------------------------------------------------------
 
-### SIR model
+### SIR model {#sir-model}
 
 The basic model to study infectious disease dynamics is the SIR model.\
 The population is divided into 3 groups:
